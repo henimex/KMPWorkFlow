@@ -6,7 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.henimex.tutorial.kmp.workflow.entities.Item
 import com.henimex.tutorial.kmp.workflow.screens.stacks.FirstScreen
 import com.henimex.tutorial.kmp.workflow.screens.stacks.FourthScreen
@@ -15,10 +14,10 @@ import com.henimex.tutorial.kmp.workflow.screens.stacks.ThirdScreen
 import kotlinx.serialization.json.Json
 
 @Composable
-fun RouteScreen() {
+fun RouteScreen(selectedScreen: String) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "main-screen") {
+    NavHost(navController = navController, startDestination = selectedScreen) {
         composable(route = Screens.Main.route) {
             MainScreen(navController = navController)
         }
@@ -52,6 +51,10 @@ fun RouteScreen() {
 
         composable(route = "fourth") {
             FourthScreen(navController = navController)
+        }
+
+        composable(route = "settings") {
+            SettingsScreen(navController = navController)
         }
     }
 }

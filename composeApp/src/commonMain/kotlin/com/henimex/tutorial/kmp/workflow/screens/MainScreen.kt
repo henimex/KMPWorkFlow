@@ -85,6 +85,12 @@ fun MainScreen(navController: NavController) {
                 Text(text = "1st")
             }
 
+            Button(onClick = {
+                navController.navigate("settings")
+            }) {
+                Text(text = "Settings")
+            }
+
 
             Row(
                 modifier = Modifier.fillMaxWidth().padding(5.dp),
